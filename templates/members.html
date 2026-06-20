@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-header">
+
+    <h1>👥 Organization Members</h1>
+
+    <p>Manage all members of THE LOUIS ORDER</p>
+
+</div>
+
+<div class="members-top">
+
+    <a href="/member/add" class="btn">
+        ➕ Add Member
+    </a>
+
+</div>
+
+{% if members %}
+
+<div class="members-grid">
+
+    {% for member in members %}
+
+    <div class="member-card">
+
+        <div class="member-header">
+            <h2>{{ member.name }}</h2>
+        </div>
+
+        <div class="member-info">
+
+            <p>
+                <strong>Telegram:</strong>
+                {{ member.telegram }}
+            </p>
+
+            <p>
+                <strong>Bio:</strong>
+                {{ member.bio }}
+            </p>
+
+        </div>
+
+        <div class="roles">
+
+            {% for role in member.roles %}
+                <span class="role-badge">
+                    {{ role }}
+                </span>
+            {% endfor %}
+
+        </div>
+
+        <div class="member-actions">
+
+            <a href="/member/edit/{{ member.id }}" class="edit-btn">
+                ✏️ Edit
+            </a>
+
+            <a href="/member/delete/{{ member.id }}"
+               class="delete-btn"
+               onclick="return confirm('Delete this member?')">
+                🗑 Delete
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty-card">
+
+    <h2>⚜️ No Members Found</h2>
+
+    <p>
+        Start building THE LOUIS ORDER by adding members.
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

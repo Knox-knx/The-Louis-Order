@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <h1>⚜️ Admin Management ⚜️</h1>
+    <p>Only the Owner can manage administrators.</p>
+</div>
+
+<div class="admin-layout">
+
+    <!-- Add Admin -->
+
+    <div class="admin-card">
+
+        <h2>➕ Add Admin</h2>
+
+        <form action="/admin/add" method="POST">
+
+            <label>Username</label>
+            <input
+                type="text"
+                name="username"
+                placeholder="Admin Username"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                placeholder="Admin Password"
+                required
+            >
+
+            <button type="submit">
+                Add Admin
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Admin List -->
+
+    <div class="admin-card">
+
+        <h2>⚜️ Current Admins</h2>
+
+        {% if admins %}
+
+            {% for admin in admins %}
+
+            <div class="admin-item">
+
+                <div>
+                    <strong>{{ admin.username }}</strong>
+                </div>
+
+                <div>
+
+                    <a href="/admin/delete/{{ loop.index0 }}"
+                       class="delete-btn"
+                       onclick="return confirm('Remove this admin?')">
+                        Remove
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-admin">
+                No Admins Found
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

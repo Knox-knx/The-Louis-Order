@@ -1,0 +1,22 @@
+{
+    "members": [
+        {
+            "id": 1,
+            "name": "Louis",
+            "telegram": "@LouisPY",
+            "bio": "",
+            "roles": [
+                "Developer",
+                "Programmer",
+                "Security Researcher",
+                "Bot Developer",
+                "Web Developer",
+                "App Developer",
+                "UI/UX Designer",
+                "Seller",
+                "Innovator",
+                "Encoder/Decoder"
+            ]
+        }
+    ]
+}

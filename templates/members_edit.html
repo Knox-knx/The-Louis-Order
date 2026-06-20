@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>✏️ Edit Member</h1>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="name"
+                value="{{ member.name }}"
+                required
+            >
+
+            <input
+                type="text"
+                name="telegram"
+                value="{{ member.telegram }}"
+            >
+
+            <textarea
+                name="bio"
+                rows="4"
+            >{{ member.bio }}</textarea>
+
+            <button type="submit">
+                Update Member
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

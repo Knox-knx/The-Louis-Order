@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>⚜️ Organization Categories ⚜️</h1>
+
+{% for category, members in categories.items() %}
+
+<div class="card">
+
+    <h2>{{ category }}</h2>
+
+    {% if members %}
+
+        <ul>
+
+        {% for member in members %}
+            <li>{{ member }}</li>
+        {% endfor %}
+
+        </ul>
+
+    {% else %}
+
+        <p>-</p>
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-header">
+
+    <h1>{{ role }}</h1>
+
+</div>
+
+{% if members %}
+
+<div class="members-grid">
+
+    {% for member in members %}
+
+    <div class="member-card">
+
+        <h2>{{ member.name }}</h2>
+
+        <p>
+            Telegram:
+            {{ member.telegram }}
+        </p>
+
+        <p>
+            {{ member.bio }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty-card">
+
+    <h2>No Members Found</h2>
+
+</div>
+
+{% endif %}
+
+{% endblock %}S

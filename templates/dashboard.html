@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-header">
+
+    <h1>👑 Dashboard</h1>
+
+    <p>Welcome back, {{ session.get('user') }}</p>
+
+</div>
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <h3>👥 Total Members</h3>
+        <h1>{{ total_members }}</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>⚜️ Total Admins</h3>
+        <h1>{{ total_admins }}</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>🏛 Categories</h3>
+        <h1>11</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>🔐 Role</h3>
+        <h1>{{ role.upper() }}</h1>
+    </div>
+
+</div>
+
+<div class="action-grid">
+
+    <a href="/member/add" class="action-card">
+        <h2>➕ Add Member</h2>
+        <p>Add new organization members</p>
+    </a>
+
+    <a href="/members" class="action-card">
+        <h2>👥 Manage Members</h2>
+        <p>View and edit members</p>
+    </a>
+
+    {% if role == "owner" %}
+    <a href="/admins" class="action-card">
+        <h2>⚜️ Manage Admins</h2>
+        <p>Add or remove admins</p>
+    </a>
+
+    <a href="/settings" class="action-card">
+        <h2>⚙️ Settings</h2>
+        <p>Manage website settings</p>
+    </a>
+    {% endif %}
+
+</div>
+
+<div class="card category-section">
+
+    <h2>⚜️ Organization Categories ⚜️</h2>
+
+    <div class="category-grid">
+
+        <div class="mini-card">💻 Developers</div>
+        <div class="mini-card">⌨️ Coders</div>
+        <div class="mini-card">🔒 Security Researchers</div>
+        <div class="mini-card">🤖 Bot Developers</div>
+        <div class="mini-card">🌐 Web Developers</div>
+        <div class="mini-card">📱 App Developers</div>
+        <div class="mini-card">🎨 UI/UX Designers</div>
+        <div class="mini-card">📈 Digital Marketers</div>
+        <div class="mini-card">🛒 Sellers</div>
+        <div class="mini-card">🧠 Innovators</div>
+        <div class="mini-card">🔐 Encoder / Decoder</div>
+
+    </div>
+
+</div>
+
+{% endblock %}

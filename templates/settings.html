@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>⚙️ Website Settings</h1>
+
+        <form method="POST">
+
+            <label>Organization Name</label>
+            <input
+                type="text"
+                name="site_name"
+                value="{{ settings.site_name }}"
+                required
+            >
+
+            <label>Motto</label>
+            <input
+                type="text"
+                name="motto"
+                value="{{ settings.motto }}"
+                required
+            >
+
+            <label>Telegram Channel</label>
+            <input
+                type="text"
+                name="channel_link"
+                value="{{ settings.get('channel_link','') }}"
+            >
+
+            <label>Telegram Group</label>
+            <input
+                type="text"
+                name="group_link"
+                value="{{ settings.get('group_link','') }}"
+            >
+
+            <label>Request Access Form</label>
+            <input
+                type="text"
+                name="request_form"
+                value="{{ settings.get('request_form','') }}"
+                placeholder="https://forms.gle/..."
+            >
+
+            <button type="submit">
+                Save Settings
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

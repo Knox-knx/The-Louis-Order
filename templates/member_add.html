@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>⚜️ Add Member ⚜️</h1>
+
+        <p>Add a new member to THE LOUIS ORDER</p>
+
+        <form method="POST">
+
+            <label>Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Member Name"
+                required
+            >
+
+            <label>Telegram Username</label>
+            <input
+                type="text"
+                name="telegram"
+                placeholder="@username"
+            >
+
+            <label>Bio</label>
+            <textarea
+                name="bio"
+                rows="4"
+                placeholder="Short description..."
+            ></textarea>
+
+            <h3>⚜️ Select Roles</h3>
+
+            <div class="roles-grid">
+
+                <label><input type="checkbox" name="roles" value="Developer"> 💻 Developer</label>
+
+                <label><input type="checkbox" name="roles" value="Programmer"> ⌨️ Programmer / Coder</label>
+
+                <label><input type="checkbox" name="roles" value="Security Researcher"> 🔒 Security Researcher</label>
+
+                <label><input type="checkbox" name="roles" value="Bot Developer"> 🤖 Bot Developer</label>
+
+                <label><input type="checkbox" name="roles" value="Web Developer"> 🌐 Web Developer</label>
+
+                <label><input type="checkbox" name="roles" value="App Developer"> 📱 App Developer</label>
+
+                <label><input type="checkbox" name="roles" value="UI/UX Designer"> 🎨 UI/UX Designer</label>
+
+                <label><input type="checkbox" name="roles" value="Digital Marketer"> 📈 Digital Marketer</label>
+
+                <label><input type="checkbox" name="roles" value="Seller"> 🛒 Seller & Entrepreneur</label>
+
+                <label><input type="checkbox" name="roles" value="Innovator"> 🧠 Tech Learner & Innovator</label>
+
+                <label><input type="checkbox" name="roles" value="Encoder/Decoder"> 🔐 Encoder / Decoder</label>
+
+            </div>
+
+            <button type="submit">
+                ➕ Add Member
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for(
+'static',
+filename='js/member_roles.js'
+) }}"></script>
+
+{% endblock %}

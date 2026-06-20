@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>📜 Activity Logs</h1>
+
+<div class="card">
+
+    {% for log in logs %}
+
+        <div class="log-item">
+
+            <strong>{{ log.time }}</strong>
+
+            <p>{{ log.action }}</p>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

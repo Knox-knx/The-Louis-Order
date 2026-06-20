@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>⚜️ 𝑻𝑯𝑬 𝑳𝑶𝑼𝑰𝑺 𝑶𝑹𝑫𝑬𝑹 ⚜️</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        ⚜️ THE LOUIS ORDER ⚜️
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        {% if session.get('user') %}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/members">Members</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="flash">
+                    {{ msg }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+<footer>
+
+    <h3>⚜️ THE LOUIS ORDER ⚜️</h3>
+
+    <p>
+        Learn • Build • Earn • Grow Together
+    </p>
+
+</footer>
+
+<div class="bottom-nav">
+
+    <a href="/" class="{% if request.path == '/' %}active{% endif %}">
+        <div class="icon">🏠</div>
+        <span>Home</span>
+    </a>
+
+    <a href="/members" class="{% if request.path == '/members' %}active{% endif %}">
+        <div class="icon">👥</div>
+        <span>Members</span>
+    </a>
+
+    <a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">
+        <div class="icon">⚜️</div>
+        <span>Panel</span>
+    </a>
+
+    <a href="/settings" class="{% if request.path == '/settings' %}active{% endif %}">
+        <div class="icon">⚙️</div>
+        <span>Settings</span>
+    </a>
+
+</div>
+
+</body>
+</html>
