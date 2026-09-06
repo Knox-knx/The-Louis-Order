@@ -223,8 +223,8 @@ Default owner (change immediately — see Security Notes):
 **`users.json`**
 ```json
 {
-  "owner": { "username": "louis", "password": "kvats2005@" },
-  "admins": [{ "username": "admin1", "password": "secret" }]
+  "owner": { "username": "abcdef", "password": "abcdefg" },
+  "admins": [{ "username": "admin", "password": "secret" }]
 }
 ```
 
