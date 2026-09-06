@@ -174,10 +174,10 @@ the-louis-order/
 | Manage admins (`/admins`, `/admin/add`, `/admin/delete`) | ❌ | ❌ | ✅ |
 | Edit settings (`/settings`) | ❌ | ❌ | ✅ |
 
-Default owner (change immediately — see Security Notes):
+Default owner (configured in `data/users.json` — change the password immediately, see Security Notes):
 
 ```json
-{ "owner": { "username": "louis", "password": "kvats2005@" }, "admins": [] }
+{ "owner": { "username": "YOUR_USERNAME", "password": "YOUR_PASSWORD" }, "admins": [] }
 ```
 
 ---
@@ -211,8 +211,8 @@ Default owner (change immediately — see Security Notes):
   "members": [
     {
       "id": 1,
-      "name": "Louis",
-      "telegram": "@LouisPY",
+      "name": "Example Member",
+      "telegram": "@example",
       "bio": "",
       "roles": ["Developer", "Bot Developer", "Web Developer"]
     }
@@ -242,7 +242,7 @@ Default owner (change immediately — see Security Notes):
 **`logs.json`**
 ```json
 {
-  "logs": [{ "action": "louis added member Louis", "time": "2026-06-20 11:43:46" }]
+  "logs": [{ "action": "admin added member Example Member", "time": "2026-06-20 11:43:46" }]
 }
 ```
 
@@ -281,7 +281,7 @@ pip install -r requirements.txt
 
 # 4. (Optional) enable GitHub sync — otherwise data stays local only
 export GITHUB_TOKEN="ghp_your_token_here"
-export GITHUB_REPO="username/repo-name"   # e.g. "louis/the-louis-order"
+export GITHUB_REPO="username/repo-name"   # e.g. "Knox-knx/The-Louis-Order"
 
 # 5. Run
 python app.py
@@ -302,7 +302,7 @@ flask --app app run --debug
 | Variable | Required | Purpose |
 |---|---|---|
 | `GITHUB_TOKEN` | Only for sync | Personal Access Token with `repo` (contents read/write) scope |
-| `GITHUB_REPO` | Only for sync | Target repo as `owner/name`, e.g. `louis/the-louis-order` |
+| `GITHUB_REPO` | Only for sync | Target repo as `owner/name`, e.g. `Knox-knx/The-Louis-Order` |
 | `PORT` | On most hosts | Host injects it; gunicorn/Render handles automatically |
 | `SECRET_KEY` | Recommended | Not yet wired — currently hardcoded in `app.py`; refactor to `os.getenv("SECRET_KEY", ...)` |
 
@@ -324,7 +324,7 @@ flask --app app run --debug
 
 ## Usage Guide
 
-1. **Login** at `/login` with owner credentials (default `louis` / see `users.json`).
+1. **Login** at `/login` with the owner credentials from `data/users.json` (change the default password immediately).
 2. **Dashboard** shows counts. Click **Add Member** → fill name, Telegram (`@handle`), bio, tick one or more of the 11 roles → save.
 3. **Members** page: edit or delete anyone. Deletion asks for JS confirm.
 4. **(Owner) Admins** page: create admin logins (`username` + `password`), share them; remove via delete link. The login page's *Request Admin Access* Google Form is for applicants — owner reviews and creates the account manually.
